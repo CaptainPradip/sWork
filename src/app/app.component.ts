@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   center: any;
 
   constructor(private httpClient: HttpClient, private orderDetailsService: OrderDetailsService) {
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyA2cSnV6EIR1xR9FnXceB0XJ90zhCUPPEE', 'callback')
+    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=', 'callback')
       .pipe(
         map(() => true),
         catchError(() => of(false)),
