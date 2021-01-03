@@ -1,3 +1,4 @@
+import { OrderDetails } from './../core/http/models/orderDetails';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +14,7 @@ import { OrderDetailsService } from 'src/core/http/order-details.service';
 export class AppComponent implements OnInit {
   title = 'sWork';
   apiLoaded: Observable<boolean>;
-  orderDetails: [];
+  orderDetails: OrderDetails[];
   markers: any[] = [];
   center: any;
 
@@ -26,8 +27,8 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.orderDetailsService.getOrderDetails().subscribe((data: any) => {
-      this.orderDetails = data.orders;
+    this.orderDetailsService.getOrderDetails().subscribe((data: OrderDetails[]) => {
+      this.orderDetails = [...data];
       this.orderDetails.forEach((value: any) => {
         this.markers.push({
           position: {
