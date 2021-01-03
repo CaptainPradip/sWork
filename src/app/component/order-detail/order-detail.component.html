@@ -10,7 +10,7 @@
         <div class="float-right">
           <button class="btn rounded-circle mr-3 " (click)="openMap(order.location)"> <i
               class="bi bi-arrow-90deg-right"></i></button>
-          <a class="btn rounded-circle border " href="tel:order.phone"><i class="bi bi-telephone-fill"></i></a>
+          <a class="btn rounded-circle border " [href]="'tel:'+order.phone"><i class="bi bi-telephone-fill"></i></a>
         </div>
       </div>
     </div>
