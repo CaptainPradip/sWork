@@ -12,6 +12,6 @@ export class OrderDetailsService {
   constructor(private httpClient: HttpClient,) { }
 
   getOrderDetails(): Observable<OrderDetails[]> {
-    return this.httpClient.get("http://demo8360259.mockable.io/clients").pipe(map((data: any) => data.orders))
+    return this.httpClient.get("/clients").pipe(map((data: any) => data.orders))
   }
 }

@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+const request = require("request")
 var bodyParser = require('body-parser');
 //import all Schema
 
@@ -9,6 +10,12 @@ app.use(express.static('./dist/sWork'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.get('/clients', async(req, res) => {
+  request('http://demo8360259.mockable.io/clients', function (error, response, body) {
+    res.status(response.statusCode)
+    res.json(JSON.parse(body))
+  });
+})
 app.get('*', (req, res) => {
 
   return res.sendFile('index.html', {root: 'dist/sWork'});
