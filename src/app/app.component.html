@@ -1,24 +1,22 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-xs-1-12">
-      <div class="card text-black mb-3">
-        <div *ngIf="apiLoaded | async" class="card-img">
-          <google-map height="300px">
-            <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
-              [title]="marker.title" [options]="marker.options">
-            </map-marker>
-          </google-map>
-        </div>
-        <div class="card-img-overlay">
-          <div class="row">
-            <div class="col-6">
-              <h5 class="card-title" style="cursor: pointer;">Orders</h5>
-            </div>
-            <div class="col-6">
-              <div class="float-right">
-                <button type="button" class="btn btn-success btn-sm btn-block">ONLINE</button>
-                <button type="button" class="btn btn-light btn-sm btn-block">OFFLINE</button>
-              </div>
+    <div class="card text-black mb-3">
+      <div *ngIf="apiLoaded | async" class="card-img">
+        <google-map height="300px" style="width: fit-content;">
+          <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+            [title]="marker.title" [options]="marker.options">
+          </map-marker>
+        </google-map>
+      </div>
+      <div class="card-img-overlay">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title" style="cursor: pointer;">Orders</h5>
+          </div>
+          <div class="col-6">
+            <div class="float-right">
+              <button type="button" class="btn btn-success btn-sm btn-block">ONLINE</button>
+              <button type="button" class="btn btn-light btn-sm btn-block">OFFLINE</button>
             </div>
           </div>
         </div>
